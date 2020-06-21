@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import './App.less';
+import { Switch,Route ,Redirect} from 'react-router-dom'
+import { adminRoutes} from './routes'
+// 高价组件
+import { Frame} from './components'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Frame>
+      <div className="App">
+       <Switch>
+         {
+           adminRoutes.map(route=>{
+             return (
+               <Route path={route.path} component={route.component} key={route.path}></Route>
+             )
+           })
+         }
+         <Redirect to="/admin/dashboard" from="/admin"></Redirect>
+       </Switch>
     </div>
+    </Frame>
   );
 }
-
-export default App;
+export default App

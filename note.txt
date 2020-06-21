@@ -1,0 +1,24 @@
+目标创建
+1. components 放一些功能组件
+2. views 页面组件
+3. actions
+4. reducers
+5. routes (index.js 配置路由，)
+如 :export const mainRoutes = [
+    {
+    pathname: '/login',
+    conponents: Login
+  }
+]
+子路由
+export const adminRoues = [
+    {
+    pathname: '/admin/a',
+    component: a
+
+    }
+]
+
+//路由加载:包括主路由和子路由。主路由：login, admin（首次dashboard),notFound,子路由：admin/a,admin/b等等
+6.配置 :index.js 配置主路由(Router, route, Switch, redirect)，这里直接使用循环创建，添加路由
+ App 组件配置子路由(route, Switch)
